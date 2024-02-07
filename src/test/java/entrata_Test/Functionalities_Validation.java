@@ -13,10 +13,8 @@ import org.testng.annotations.Test;
 import base_Package_Use.Entrata_Base;
 import entrata_Utility.Utillity_Use;
 
-
 public class Functionalities_Validation extends Entrata_Base
-{
-		
+{	
 	@BeforeClass
 	public void launchBrowser() throws InterruptedException
 	{
@@ -31,23 +29,20 @@ public class Functionalities_Validation extends Entrata_Base
 	@Test
 	public void Functionalities() throws InterruptedException, IOException
 	{
-	Thread.sleep(1000);
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	driver.findElement(By.xpath("//div[contains(text(),'Products')]")).click();
 	driver.get("https://www.entrata.com/products/property-management");
 	Reporter.log("Launching Property Management Page ", true);
-	Thread.sleep(1000);
 	
 	driver.get("https://www.entrata.com/products/marketing-and-leasing");
 	Reporter.log("Launching Marketing and Leasing Page ", true);
-	Thread.sleep(1000);
 	
 	driver.navigate().to("https://www.entrata.com/products/accounting");
 	Reporter.log("Launching Accounting Page ", true);
-	Thread.sleep(1000);
 	
 	driver.get("https://www.entrata.com/products/utilities");
 	Reporter.log("Launching Utilities Page ", true);
-	Thread.sleep(1000);
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	
 	driver.get("https://go.entrata.com/dem0.html");
 	driver.findElement(By.id("FirstName")).sendKeys("Latika");
@@ -57,7 +52,6 @@ public class Functionalities_Validation extends Entrata_Base
 	driver.findElement(By.id("Phone")).sendKeys("8956741236");
 	driver.findElement(By.id("Unit_Count__c")).sendKeys("5000");
 	driver.findElement(By.id("Title")).sendKeys("Quality Analyst");
-	Thread.sleep(1000);
 	
 	driver.get("https://www.entrata.com/");
 	String expectedTitle="Property Management Software | Entrata";
@@ -71,7 +65,6 @@ public class Functionalities_Validation extends Entrata_Base
 	@AfterClass
 	public void closeBrowser() throws InterruptedException
 	{
-	Thread.sleep(2000);
 	closeEntrata();
 	}
 	

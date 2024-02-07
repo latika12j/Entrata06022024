@@ -15,7 +15,7 @@ public class Utillity_Use
 		{
 		Reporter.log("Taking screenshot", true);
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		File dest=new File("E:\\screenshot\\"+TCID+"_"+".png");
+		File dest=new File(System.getProperty("user.dir")+TCID+"_"+".png");
 		Reporter.log("Saved screenshot at "+dest, true);
 		org.openqa.selenium.io.FileHandler.copy(src, dest);
 
